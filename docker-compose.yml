@@ -3,10 +3,12 @@ services:
   today-timelapse:
     image: today-timelapse
     build: .
-    command: /bluepi
+    command: /bluepi --output=/output --upload
+    env_file:
+      - secret.env
     volumes:
-      - /volume1/surveillance/bluepi:/bluepi
-      - /var/services/homes/hombit/tmp:/output
+      - /volume1/surveillance/bluepi:/bluepi:ro
+      - /var/services/homes/hombit/timelapse:/output
     devices:
       - /dev/dri:/dev/dri
     restart: unless-stopped
