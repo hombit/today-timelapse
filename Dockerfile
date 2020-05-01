@@ -8,7 +8,7 @@ RUN . /etc/os-release\
     && zypper --non-interactive --gpg-auto-import-keys in --from=packman --recommends ffmpeg-3 intel-vaapi-driver
 
 RUN zypper --non-interactive in python3-pip
-RUN pip3 install ffmpeg-python schedule youtube-video-upload
+RUN pip3 install schedule youtube-video-upload
 
 COPY docker_entrypoint.py /docker_entrypoint.py
 
